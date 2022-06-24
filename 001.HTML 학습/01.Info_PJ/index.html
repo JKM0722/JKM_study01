@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <!-- meta 태그 : 초기정보 셋업 : 
@@ -90,12 +91,12 @@
                 font: italic bold 24px/30px "궁서";
                 */
 
-                /* 
+        /* 
                     마우스 오버시
                     :hover 가상클래스
                 */
-            
-                /*
+
+        /*
             [ 웹 색상표기법 ]
 
             1. 해시코드 : #6자리숫자
@@ -137,16 +138,21 @@
         /* 공통 클래스 */
         /* box center의 의미로 bxc */
 
-        .bxc{
-            width: 750px; /* w750 */
-            /* height: 200px; */ /* h200 */
-            padding: 10px; /* p10 */
+        .bxc {
+            width: 750px;
+            /* w750 */
+            /* height: 200px; */
+            /* h200 */
+            padding: 10px;
+            /* p10 */
             /* border: 2px solid silver; */
-            margin: 20px auto; /* m20 */
+            margin: 20px auto;
+            /* m20 */
             /* background-color: antiquewhite; */
             text-align: center;
             /* 박스크기 유지 속성 : 패딩과 보더크기 포함. */
-            box-sizing: border-box; /* bxb */
+            box-sizing: border-box;
+            /* bxb */
         }
 
         /* 
@@ -155,50 +161,52 @@
             양쪽마진 auto의 의미는? 양쪽 마진 등분함
         */
 
-        h1{
-            color:darkcyan;
+        h1 {
+            color: darkcyan;
             text-shadow: 2px 2px #333;
             font-family: 'East Sea Dokdo', cursive;
             font-size: 3rem;
             font-weight: 100;
-            padding: 0px; margin: 15px;
+            padding: 0px;
+            margin: 15px;
         }
 
-        header{
+        header {
             background-color: antiquewhite;
             border: 1px solid silver;
         }
 
-        footer{
+        footer {
             background-color: rgb(226, 224, 224);
             color: #333;
         }
 
-        main>img{
+        main>img {
             width: 85%;
         }
+
         /* gnb 메뉴 서식 */
-        a{
+        a {
             text-decoration: none;
             color: green;
             font-weight: bold;
 
         }
-        
+
         /* 메뉴 중 로고이미지 */
-        .nav a img{
+        .nav a img {
             vertical-align: -4px;
             /* verticle-align - 인라인요소간 세로정렬
             : top, bottom, baseline, middle, 수치 
             - 인라인요소 진행방향인 오른쪽에 영향을 준다 (보통 이미지과 글자의 세로위치를 조정할때 쓴다)
             */
         }
-        
+
         /* .nav a:hover img{
             text-decoration: none;
         } */
 
-        .nav > a+a:hover{
+        .nav>a+a:hover {
             /* a+a:hover - 앞에 a요소가 있는 a요소 모두선택 결과적으로 첫번쨰 a만 제외됨 */
             text-decoration: underline;
         }
@@ -207,15 +215,18 @@
             text-decoration: underline;
         } */
 
-        a>img{
+        a>img {
             bottom: 0px;
             vertical-align: -4px;
         }
 
-        address{font-style:normal;}
+        address {
+            font-style: normal;
+        }
     </style>
 
 </head>
+
 <body>
     <!-- 1. 상단영역 -->
     <header id="top" class="bxc">
@@ -249,11 +260,11 @@
                 - css를 각 요소에 직접 코딩하는 방식
                 - JS에서 이 방식을 사용
              -->
-            <a href="#">정치</a> |
-            <a href="#">경제</a> |
-            <a href="#">사회</a> |
-            <a href="#">IT/과학</a> |
-            <a href="#">TV/연예</a> 
+            <a href="sub1.html">정치</a> |
+            <a href="sub2.html">경제</a> |
+            <a href="sub3.html">사회</a> |
+            <a href="sub4.html">IT/과학</a> |
+            <a href="sub5.html">TV/연예</a>
         </nav>
 
         <!-- div : divide / division -> 영역을 구분해주는 블럭요소/ 블록요소는 옆에 다른요소가 못오며 내용을 구분하는 역할 
@@ -277,29 +288,36 @@
     <!-- 3. 하단영역 -->
     <footer class="bxc">
         <!-- 회사주소 및 정보 -->
-        <address> 
+        <address>
             서울시 강남구 역삼동 119 대호B 8F <br>
             대표 : Tom Brace Parker <br>
             전화 : 010-1112-2222
         </address>
     </footer>
 
-<!--
+    <!--
     [div 형제 요소들]
 
     - div에 어떤 내용 영역인지 알 수 있도록 의미를 부여한 새로운 레이아웃용 태그들
+    - 시멘틱 태그 (sementic tag)
 
     1. header - 상단영역
     2. footer - 하단영역
     3. main - 메인영역 (한페이지에 하나만)
     4. nav - 네비게이션 영역
-
+    5. aside - 부수적인 내용 영역
+    6. section - 내용 구분을 위한 영역
+    7. article - 독립적인 내용을 구분하는 영역 
+    (보통 article이나 section은 w3c에서 heading 태그(h1~h6)를 내용에 사용할 것을 권고 )
   -->
-    
+
+    <!-- 단축키 remove tag - 컨알k update tag - 컨알i prettier beautify- 컨알b-->
+
 
 
 
 
 
 </body>
+
 </html>
