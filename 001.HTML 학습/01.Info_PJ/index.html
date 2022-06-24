@@ -29,6 +29,17 @@
             2. 자손선택자 : 띄어쓰기 (예 : h1 a)
             3. 아이디선택자 : #000 
             4. 클래스선택자 : .000
+            5. 직계자식선택자
+            6. 그룹선택자
+            7. 종속선택자 : 태그명 + 아이디/클래스명
+            8. 형제 선택자 : + (예: li + li)
+                - 해석 : 앞에 지정요소가 있는 형제요소
+            9. 다중형제선택자 : ~(틸드)
+                - 해석 : 선택된 형제요소 뒤의 모든 형제요소들 
+                예) li:nth-child(2)~li
+            10. 속성선택다:[] 예) a[href=#]
+                - 특정속성을 가진 요소를 선택
+
 
 
             [css 요소 박스모델 필수속성]
@@ -177,17 +188,24 @@
         /* 메뉴 중 로고이미지 */
         .nav a img{
             vertical-align: -4px;
+            /* verticle-align - 인라인요소간 세로정렬
+            : top, bottom, baseline, middle, 수치 
+            - 인라인요소 진행방향인 오른쪽에 영향을 준다 (보통 이미지과 글자의 세로위치를 조정할때 쓴다)
+            */
         }
         
-        .nav a:hover img{
+        /* .nav a:hover img{
             text-decoration: none;
-        }
+        } */
 
-
-
-        a:hover{
+        .nav > a+a:hover{
+            /* a+a:hover - 앞에 a요소가 있는 a요소 모두선택 결과적으로 첫번쨰 a만 제외됨 */
             text-decoration: underline;
         }
+
+        /* a:hover{
+            text-decoration: underline;
+        } */
 
         a>img{
             bottom: 0px;
@@ -265,6 +283,23 @@
             전화 : 010-1112-2222
         </address>
     </footer>
+
+<!--
+    [div 형제 요소들]
+
+    - div에 어떤 내용 영역인지 알 수 있도록 의미를 부여한 새로운 레이아웃용 태그들
+
+    1. header - 상단영역
+    2. footer - 하단영역
+    3. main - 메인영역 (한페이지에 하나만)
+    4. nav - 네비게이션 영역
+
+  -->
+    
+
+
+
+
 
 </body>
 </html>
