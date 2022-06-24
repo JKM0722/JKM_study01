@@ -10,6 +10,7 @@
     <!-- title : 브라우저 탭메뉴 타이틀 -->
     <!-- 스타일시트 코딩구영 : 인터널방식 -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
         /* 스타일 시트 사용하는 영역 */
         /* css문법만 쓸 수 있음 */
         /* 
@@ -22,7 +23,7 @@
             - 값 : 각 속성에서 사용할 수 있는 값들
             속성명 다음에 콜론 (:)
             값 다음이 세미콜론 (;)
-
+            
             [CSS 선택자 (Selector)]
             1. 타입선택자 : 요소명 (예 : h1, p , a, div)
             2. 자손선택자 : 띄어쓰기 (예 : h1 a)
@@ -45,15 +46,74 @@
 
             [글자 관련 속성]
             1. 글자크기 - font-size
+                값 - 절대단위 : px, pt
+                    상대단위 : em, rem, %, vw, vh
             2. 글자체 - font-family
+                값 - 기본적으로 로컬체를 적용
+                    순서대로 콤마로 구분
+                        예) font-family:궁서체, 굴림체, verdana
+                         - 최근에 웹폰트가 대세!!
+                         브라우저에서 다운로드 지원하는 글씨체
             3. 글자색 - color
+                값 - 색상명, 해시코드, rgb, hsl 등 
             4. 글자자간 - letter-spacing
+                - 일반단위사용
             5. 줄간격 - line-height
+                - 단위없이 숫자만 쓰면 글자크기의 배수
             6. 단어간격 - word-spacing
+                - 일반단위사용
             7. 글자스타일 - font-style
+                - 이탤릭일때 사용 : italic
+                - 이탤릭 해제시 : normal
             8. 글자두께 - font-weight
-            
+                값 - lighter, bold, bolder, 100~900
+            9. 글자데코레이션 - text-decoration
+                - 글자에 줄 긋기
+                underline 밑줄
+                overline 윗줄
+                linethrough 삭선
+                none 줄없앰
 
+                /* font: 스두크/줄체;
+                스타일 두께 크기/ 줄간격 글씨체
+                font: italic bold 24px/30px "궁서";
+                */
+
+                /* 
+                    마우스 오버시
+                    :hover 가상클래스
+                */
+            
+                /*
+            [ 웹 색상표기법 ]
+
+            1. 해시코드 : #6자리숫자
+                (두자리가 같을 경우 3자리로 축약표현가능)
+                - 16진수로 표기함(0~f)
+                - 해시코드로 투명도를 주려면 뒤에 2자리 추가하여
+                8자리 숫자로 투명도를 표현함
+
+            2. RGB 코드 : rgba(red,green,blue,알파값)
+            - 0~255 까지 숫자중 사용
+            - red, green, blue
+            - 마지막 a는 alpha값 즉, 투명도 -> 없으면 생략!
+            (0~1사이의 소숫점값들 사용)
+
+            [ rgba 2가지 표기법 ]
+            1. rgba(red색,green색,blue색,alpha값)
+            - alpha값은 투명도 (0~1)
+            2. rgb(red색 green색 blue색 / alpha값%)
+            - alpha값은 투명도 (0%~100%)
+
+            3. HSL 코드 : hsla(hue,saturation,lightness,알파값)
+            - hue(색상), saturation(채도), lightness(명도)
+            - hue는 색상번호, 채도와 명도는 0~100%값 범위로 사용
+            - 마지막은 alpha값 -> 역시 없으면 생략!
+
+            4. 웹색상명: 지정된 컬러명으로 색생을 셋팅
+            예) red, green, blue, pink, navy, 등
+            - 모든 색상은 w3schools.com의 색상참조로 가서확인!
+            https://www.w3schools.com/cssref/css_colors.asp
             _________________________________________
 
             -> 박스모델에서 width, height크기를 지정 시 
@@ -86,7 +146,11 @@
 
         h1{
             color:darkcyan;
-            text-shadow: 1px 2px ;
+            text-shadow: 2px 2px #333;
+            font-family: 'East Sea Dokdo', cursive;
+            font-size: 3rem;
+            font-weight: 100;
+            padding: 0px; margin: 15px;
         }
 
         header{
@@ -107,13 +171,27 @@
             text-decoration: none;
             color: green;
             font-weight: bold;
-            position: relative;
+
+        }
+        
+        /* 메뉴 중 로고이미지 */
+        .nav a img{
+            vertical-align: -4px;
+        }
+        
+        .nav a:hover img{
+            text-decoration: none;
+        }
+
+
+
+        a:hover{
+            text-decoration: underline;
         }
 
         a>img{
-            position: absolute;
             bottom: 0px;
-            left: -25px;
+            vertical-align: -4px;
         }
 
         address{font-style:normal;}
@@ -157,7 +235,7 @@
             <a href="#">경제</a> |
             <a href="#">사회</a> |
             <a href="#">IT/과학</a> |
-            <a href="#">TV/연예</a> |
+            <a href="#">TV/연예</a> 
         </nav>
 
         <!-- div : divide / division -> 영역을 구분해주는 블럭요소/ 블록요소는 옆에 다른요소가 못오며 내용을 구분하는 역할 
