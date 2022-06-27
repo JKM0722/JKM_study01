@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV/연예 뉴스</title>
     <link rel="stylesheet" href="./css/common.css" type="text/css">
+    <link rel="stylesheet" href="./css/sub.css">
 </head>
+
 <body>
-        <!-- 1. 상단영역 -->
-        <header id="top" class="bxc">
-            <!-- 1-1. 타이틀 -->
-            <h1>네이버 요약뉴스 - TV/연예 </h1>
-            <!-- 1-2 메뉴(GNB: Global Navigation Bar) -->
-            <nav class="nav">
-                <a href="index.html"><img src="./img/logo.png" alt="네이버_로고" style="width: 1.2rem;"></a>
-                <!-- 
+    <!-- 1. 상단영역 -->
+    <header id="top" class="bxc">
+        <!-- 1-1. 타이틀 -->
+        <h1>네이버 요약뉴스 - TV/연예 </h1>
+        <!-- 1-2 메뉴(GNB: Global Navigation Bar) -->
+        <nav class="nav">
+            <a href="index.html"><img src="./img/logo.png" alt="네이버_로고" style="width: 1.2rem;"></a>
+            <!-- 
                     img 요소 : image
                     - 이미지를 경로에서 불러와서 화면에 보여주는 요소
                     (필수속성 2가지)
@@ -40,14 +43,14 @@
                     - css를 각 요소에 직접 코딩하는 방식
                     - JS에서 이 방식을 사용
                  -->
-                 <a href="sub1.html">정치</a> |
-                 <a href="sub2.html">경제</a> |
-                 <a href="sub3.html">사회</a> |
-                 <a href="sub4.html">IT/과학</a> |
-                 <a href="sub5.html">TV/연예</a>
-            </nav>
-    
-            <!-- div : divide / division -> 영역을 구분해주는 블럭요소/ 블록요소는 옆에 다른요소가 못오며 내용을 구분하는 역할 
+            <a href="sub1.html">정치</a> |
+            <a href="sub2.html">경제</a> |
+            <a href="sub3.html">사회</a> |
+            <a href="sub4.html">IT/과학</a> |
+            <a href="sub5.html">TV/연예</a>
+        </nav>
+
+        <!-- div : divide / division -> 영역을 구분해주는 블럭요소/ 블록요소는 옆에 다른요소가 못오며 내용을 구분하는 역할 
             [요소에 이름넣기]
             - 요소를 구분하기 위한 아이디/ 클래스로 이름짓는다
             - 아이디 (id) : 유일한 요소구분
@@ -57,41 +60,66 @@
             - 종속선택자 : 태그명 + 아이디/클래스명
                 (예 : div#top / a.my)
             -->
-        </header>
-    
-        <main id="cont" class="bxc">
-            <!-- 2-1 언론사 로고 -->
-            <div class="prlogo">
+    </header>
 
-            </div>
-            <!-- 2-2 기사제목 -->
-            <h2 class="atit">
+    <main id="cont" class="bxc">
+        <!-- 2-1 언론사 로고 -->
+        <div class="prlogo">
+            <img src="./img/pr5.png" alt="sportalkorea">
+        </div>
+        <!-- 2-2 기사제목 -->
+        <h2 class="atit">
+            김민재 바이아웃 '314억원' 지불 준비, EPL은 없다
+        </h2>
+        <!-- 2-3 기사사진(+사진 설명) -->
+        <figure class="afig">
+            <img src="./img/arti5.jpg" alt="김민재">
+            <figcaption>
+                <small>사진=게티이미지코리아</small>
+            </figcaption>
+        </figure>
+        <section class="arti">
+            <p>[스포탈코리아] 조용운 기자= 김민재가 페네르바체에 잔류할 가능성이 커지는 가운데 바이아웃 지불 의사를 밝힌 클럽이 있다.</p>
 
-            </h2>
-            <!-- 2-3 기사사진(+사진 설명) -->
-            <figure class="afig">
+            <p>튀르키예(터키) 매체 '파나틱'은 "지난 시즌 성공적인 활약을 펼친 김민재에게 유럽 5대리그의 제안이 있다"며 "바이아웃 금액을 지불할 준비가 된 클럽도 있다"고 전했다.</p>
 
-            </figure>
-            <section class="arti">
+            <p>김민재는 지난해 여름 300만 유로(약 40억원)의 이적료로 페네르바체에 입단하며 유럽 무대에 도전했다. 첫 시즌 만에 유럽 빅클럽이 주목하는 수비수로 거듭났다. 튀르키예 리그 31경기를
+                비롯해 총 39경기서 3358분을 뛰며 주전으로 맹활약했다.</p>
 
-            </section>
-            <!-- 2-5 기자정보 -->
-            <div class="rinfo">
-                
-            </div>
-        </main>
+            <p>김민재를 원하는 클럽이 많다. 시즌 도중에도 스카우트를 파견해 김민재의 기량을 확인하던 팀이 상당했다. 여름 이적 시장이 열리자 김민재 영입전이 펼쳐졌다. 나폴리, 토트넘 홋스퍼, 에버턴,
+                마르세유 등 다양한 리그의 명문 구단이 뛰어들었다.</p>
 
-    
-        <!-- 3. 하단영역 -->
-        <footer class="bxc">
-            <!-- 회사주소 및 정보 -->
-            <address>
-                서울시 강남구 역삼동 119 대호B 8F <br>
-                대표 : Tom Brace Parker <br>
-                전화 : 010-1112-2222
-            </address>
-        </footer>
-    
+            <p>김민재의 거취는 아직 결정되지 않았다. 다만 최근 휴가를 마치고 페네르바체 훈련에 참가한 김민재는 조르제 제주스 감독과 만남을 가진 이후 잔류에 무게를 둔다는 소식이 들린다.</p>
+
+            <p>김민재의 협상이 교착상태에 빠지자 바이아웃 지불도 고민한다. 파나틱에 따르면 마르세유와 나폴리가 2300만 유로(약 314억원)로 알려진 김민재의 바이아웃을 낼 준비가 됐다.</p>
+
+            <p>다만 토트넘과 에버턴 등 잉글리시 프리미어리그(EPL) 구단들은 김민재의 바이아웃에 근접한 금액만 제시한 것으로 알려졌다.</p>
+
+        </section>
+
+        <hr>
+        <!-- 2-5 기자정보 -->
+        <div class="rinfo">
+            조용운 yuworld@sportalkorea.com
+        </div>
+
+        <h5>
+            <a href="https://sports.news.naver.com/news?oid=139&aid=0002169057">기사원문</a>
+        </h5>
+    </main>
+
+
+    <!-- 3. 하단영역 -->
+    <footer class="bxc">
+        <!-- 회사주소 및 정보 -->
+        <address>
+            서울시 강남구 역삼동 119 대호B 8F <br>
+            대표 : Tom Brace Parker <br>
+            전화 : 010-1112-2222
+        </address>
+    </footer>
+
 
 </body>
+
 </html>

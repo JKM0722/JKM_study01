@@ -52,12 +52,7 @@ main>img {
 }
 
 /* gnb 메뉴 서식 */
-a {
-    text-decoration: none;
-    color: green;
-    font-weight: bold;
 
-}
 
 /* 메뉴 중 로고이미지 */
 .nav a img {
@@ -80,7 +75,9 @@ a {
 /* a:hover{
     text-decoration: underline;
 } */
-
+.arti, .rinfo, .prlogo, .atit {
+    text-align: left;
+}
 a>img {
     bottom: 0px;
     vertical-align: -4px;

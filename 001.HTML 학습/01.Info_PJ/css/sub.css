@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* 서브페이지 공통 */
+
+/* 2-1 언론사 로고 */
+.prlogo img{
+    height: 32px;
+    /* 이미지는 가로 세로중 하나만 변경하면 나머지는 자동으로 비율 유지함 */
+}
+
+.desc, h5, .bquote, .work, .itmag, .rank, .secnews, .pnews {
+    text-align: left;
+}
+
+.pnews td{
+    text-align: center;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+.pnews img{
+    width: 100px;
+    height: 100%;
+}
