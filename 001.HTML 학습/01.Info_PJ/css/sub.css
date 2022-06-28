@@ -30,15 +30,7 @@ http request(웹요청)이 많아져서
     text-align: left;
 }
 
-.pnews td{
-    text-align: center;
-    height: 100px;
-    /* border: 1px solid black; */
-}
-.pnews img{
-    width: 100px;
-    height: 100%;
-}
+
 
 /* 기사제목 */
 .atit {
@@ -140,7 +132,114 @@ http request(웹요청)이 많아져서
         font-size: 14px;
         font-family: "돋움", "궁서";
         line-height: 2.5;
+        letter-spacing: -1px;
     }
+
+    /* a요소 마우스 오버시 :hover 가상클래스 */
     #cont a:hover{
+        /* 글자 밑줄 */
         text-decoration: underline;
+        color: orangered;
+    }
+
+    /* ul 블릿 타입 변경 */
+    #cont ul{
+        list-style: square;
+    }
+    
+    #cont ol{
+        list-style: upper-latin;
+    }
+
+    /* 분야별 뉴스 dt */
+    .secnews dt {
+        font-family: 'East Sea Dokdo';
+        font-size: 23px;
+        margin-top: 10px;
+        padding-left: 28px;
+    }
+
+    /* dt 순서별 글자색 변경 */
+    .secnews dt:first-of-type{
+        color: darkolivegreen;
+    }
+
+    .secnews dt:nth-of-type(2){
+        color: yellowgreen;
+    }
+
+    .secnews dt:last-of-type{
+        color: aqua;
+    }
+
+    /* 
+        [ 자식요소 순번선택하기 ]
+        -> 태그가 여러종류 섞인경우
+
+        :first-of-type 
+        같은종류중 첫번쨰요소
+        :nth-of-type(n)
+        같은종류중 n번쨰요소
+        :last-of-type
+        같은종류중 마지막째요소
+        ______________________
+        태그종류가 한가지일때
+        :first-child
+        같은종류중 첫번쨰요소
+        :nth-child(n)
+        같은종류중 n번쨰요소
+        :last-child
+        같은종류중 마지막째요소
+    */
+
+    .work {
+        text-align: center;
+        background: lightyellow;
+    }
+
+    .work figcaption{
+        padding-top: 12px;
+        font-size: 14px;
+    }
+
+    .work cite{
+        font-style: normal;
+        color: brown;
+        font-family: "궁서", sans-serif;
+        font-weight: bold;
+        word-spacing: -6px;
+    }
+
+    /* 사진뉴스박스 */
+    .pnews table {
+        margin: 0 auto;
+        width: 90%;
+        border-collapse: separate;
+        border-spacing: 6px;
+        /* 블록요소와 같이 table 도 마영오 적용 */
+    }
+
+
+    /* 첫번째 td - 첫번째 숫자td */
+    .pnews td:first-child {
+        color: red;
+        height: 108px;
+        background: #ccc;
+        width: 50px;
+        text-align: center;
+    }
+
+    .pnews td:nth-child(2){
+        padding-left: 10px;
+        background-color: #ffa0a0;
+    }
+
+    .pnews td:last-child{
+    width: 20%;
+    }
+
+    .pnews img{
+        vertical-align: middle;
+        height: 110px;
+        width: 100%;
     }
