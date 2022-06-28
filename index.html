@@ -2,14 +2,123 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KM의 공통 프로젝트</title>
+    <title>KM의 아카이브 페이지</title>
+    <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&display=swap');
+
+    /*             
+        font-family: 'Black And White Picture', sans-serif;
+        font-family: 'Gugi', sans-serif;
+     */
+
+
+    /* 리셋 공통 */
+    html, body, h1, h2{
+        margin: 0;
+        padding: 0;
+    }
+
+    /* body 배경 */
+    body{
+        background: url(./imgs/worksbg.jpg) no-repeat fixed center/cover;
+        /* background:; 색이반고윙/크
+           background: 배경색 이미지 박복여부 고정 위치/ 크기
+        */
+    }
+
+    /* 초기화 */
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    a{
+        color: #222;
+        text-decoration: none;
+    }
+
+    /* 전체박스 */
+    .wrap{
+        width: 1200px;
+        /* 마영오! - 가로중앙 */
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.774);
+        border-radius: 15px;
+        padding: 15px;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+    }
+
+    /* 타이틀 */
+    .tit{
+        text-align: center;
+    }
+
+    /* 서브타이틀 */
+    .pbx h2{
+        font-family: 'Gugi', sans-serif;
+        color: rgb(177, 177, 177);
+        font-weight: normal;
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.699);
+    }
+
+    /* 프로젝트 a 링크 */
+    .pbx a{
+        font-family: 'Black And White Picture', sans-serif;
+        font-size: 30px;
+        line-height: 2;
+    }
+
+    /* 프로젝트박스 공통 */
+    .pj{
+        /* 가로크기 : 부모크기의 절반 */
+        width: 50%;
+        /* 마영오 */
+        margin: 0 auto;
+        border: 1px dashed lightgreen;
+    }
+    
+    </style>
 </head>
 <body>
-    <h1>KM의 공통 프로젝트</h1>
-    <h2>
-        <a href="001.HTML 학습/001.기본전달사항.html" target="_blank">001.기본전달사항</a>
-    </h2>
+    <div class="wrap">
+        <!-- 1. 타이틀 -->
+        <h1 class="tit">
+            <img src="./imgs/mylogo_14.png" alt="마이 아카이브">
+        </h1>
+        <!-- 프로젝트 박스 -->
+        <div class="pbx">
+            <!-- 공통프로젝트 -->
+            <section class="pj cpt">
+                <h2>공통프로젝트</h2>
+                <ul>
+                    <li>
+                        <a href="./001.HTML 학습/001.기본전달사항.html" target="_blank">
+                            기본전달사항
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 개인프로젝트 -->
+            <section class="pj ppj">
+                <h2>개인프로젝트</h2>
+                <ul>
+                    <li>
+                        <a href="./001.HTML 학습/001.기본전달사항.html" target="_blank">
+                            기본전달사항
+                        </a>
+                    </li>
+                </ul>
+            </section>            
+        </div>
+
+    </div>
+
 </body>
 </html>

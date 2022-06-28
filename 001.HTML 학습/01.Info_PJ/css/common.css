@@ -20,7 +20,7 @@
     box-sizing: border-box;
     /* bxb */
 }
-
+body{overflow: scroll;}
 /* 
     [블록박스 중앙정렬]
     margub 0px auto -> 마영오
