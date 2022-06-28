@@ -86,3 +86,9 @@ a>img {
 address {
     font-style: normal;
 }
+
+.nav a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
