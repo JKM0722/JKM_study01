@@ -15,6 +15,11 @@ http request(웹요청)이 많아져서
 
 /* 서브페이지 공통 */
 
+/* 메인영역박스 */
+#cont{
+    padding: 15px;
+}
+
 /* 2-1 언론사 로고 */
 .prlogo img{
     height: 32px;
@@ -99,6 +104,7 @@ http request(웹요청)이 많아져서
         font-size: 17px;
         /* 줄간격 : 숫자만쓰면 배수 */
         line-height: 1.6;
+        padding: 0px 10px;
     }
 
     /* 기타 타이틀 h3 */
@@ -106,4 +112,35 @@ http request(웹요청)이 많아져서
         font-family: 'East Sea Dokdo', cursive;
         font-size: 30px;
         font-weight: normal;
+        /* 패딩 왼쪽 */
+        padding-left: 20px;
+    }
+
+    /* 공통박스 */
+    #cont article {
+        border-top: 2px dashed #ccc;
+        margin-top: 40px;
+        padding: 10px;
+    }
+
+    blockquote{
+        padding: 5px;
+        text-align: justify;
+        font-family: "굴림", sans-serif;
+        line-height: 1.7;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* 메인컨텐츠 아래 a요소
+    주의사항 -  글자색, 밑줄은 반드시 a요소에서 할것! */
+    #cont a{
+        text-decoration: none;
+        color: rgba(0, 0, 255, 0.692);
+        font-size: 14px;
+        font-family: "돋움", "궁서";
+        line-height: 2.5;
+    }
+    #cont a:hover{
+        text-decoration: underline;
     }
