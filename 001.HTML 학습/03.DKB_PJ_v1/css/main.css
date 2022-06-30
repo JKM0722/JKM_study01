@@ -18,18 +18,85 @@ body{
 }
 
 /* 캐릭터박스 */
+
+.cont{
+    padding-top: 500px;
+    /* 상단 패딩: 첫번째 요소위치밀기의 기본
+    첫번쨰 요소에 마진탑으로 위치를 이동할 경우
+    부모요소 바깥으로 마진이 나감(원래 디자인 속성임)
+    마진을 포함하려면 부모요소에 overflow:hidden을 주면 포함되지만 
+    !첫번째 요소!의 위치는 부모의 패딩으로 밀어주는것이 정석이다 */
+
+    box-sizing: border-box;
+    /* 일반적인 박스는 content-box이며 가로, 세로 크기를 설정할 경우
+    그 크기는 컨텐트 영역의 크기다!
+    박스의 보더와 패딩을 제외한 내용영역을 컨텐트 영역이라고 한다!
+    패딩과 보더를 포함하여 크기를 정하려면
+    box-sizing: border-box; 라고 세팅하면 된다*/
+}
+
 .cbx{
     width: 90%; 
     margin: 0 auto;
+}
+
+/* float자식의 부모에 가상요소로 clear설정 */
+.cbx::after{
+    content: '';
+    display: block;
+    clear: both;
 }
 
 /* 캐릭터 개별박스 공통 */
 .cat{
     /* 가로크기 4등분 */
     width: 25%;
+    /* 블록요소 옆으로 흐르게 */
+    float: left;
 }
 
-/* 하위 캐릭터 이미지 */
-.cat img{
+/* 하위 캐릭터 이미지
+- .ci의 직계자식만 선택
+*/
+.ci>img{
     width: 100%;
+}
+
+/* 캐릭터 이름 이미지 박스 span */
+.ci span {
+    display: block;
+    /* 원래 inline이지만 출신변경 */
+    text-align: center;
+    /* 블록요소 내부의 인라인 컨텐츠를 중앙에 오게함 */
+    
+    /* 마진탑으로 위치이동하기 */
+    margin-top: -17%;
+    /* 
+        마진값을 마이너스로 주면 위의요소와 겹칠수있다.
+        포지션을 쓰지않고 겹치게 하는 방법이다.
+        일반적인 위치 이동은 마진으로 한다.
+        단위로 %를 사용하면 마진에 있어서 
+        margin-top은 기존 부모박스의 height값에대한 %이고 
+        margin-left는 기존 부모박스의 width폭값에대한 %이다
+    */
+}
+
+/* 캐릭터 이름 이미지 */
+.ci span img{
+    width: 30%;
+}
+
+/* 캐릭터 이름 이미지 첫번째 숨김 */
+.ci span img:first-child{
+    display: none;
+}
+
+/* 캐릭터 이름 첫번째이미지 .cat에 오버시 보이기 */
+.cat:hover span img:first-child{
+    display: inline;
+}
+
+/* 캐릭터 이름 두번째이미지 .cat에 오버시 숨기기 */
+.cat:hover span img:last-child{
+    display: none;
 }
