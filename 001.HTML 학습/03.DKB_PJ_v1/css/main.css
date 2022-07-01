@@ -58,6 +58,17 @@ body{
     /* 가로세로 크기나 마진값으로 %를 쓰면 기준은 싸고있는 부모박스가 되어벌인다 ㄹㅇ ㅋㅋ */
 }
 
+/* 캐릭터 이미지 박스 */
+.ci{
+    /* 트랜지션 : 속시이지 */
+    transition: .6s ease-out;
+}
+
+/* .cat에 오버시 .ci 변경 */
+.cat:hover .ci{
+    margin-top: -53%;
+}
+
 /* 하위 캐릭터 이미지
 - .ci의 직계자식만 선택
 */
@@ -108,16 +119,69 @@ body{
 .cd{
     /* 배경: 색이반고위/크 */
     background: url(../images/eachBG.jpg) no-repeat center /cover;
+
+    /* 높이값 설정 : 0-> 250px 오버시 변경 */
+    height: 0px;
+    /* 넘치는 내용 자동 스크롤 
+    높이값을 따라 스크롤이 자동변경됨*/
+    overflow: auto;
+    transition: height .6s ease-out;
 }
+
+.cat:hover .cd{
+    height: 250px;
+}
+
+/******************************************************************* 
+[트랜지션 (transition) 애니메이션 효과주기]
+-> 속성값의 변화과정을 보여주면서 애니메이션 하는 속성
+(기본설정)
+transition : 속성 시간 이징 지연 -> 속시이지
+
+
+https://www.w3schools.com/css/css3_transitions.asp
+1. 속성 (transition-property)
+- 변경 애니메이션 대상 속성
+    (안쓰거나 all을 쓰면 모든 속성이 애니메이션 적용)
+    -> 속성을 따로 쓰는 이유는 개별적으로 속성별로 애니메이션을 따로 설정할 
+    수 있기 떄문
+    예) transition: all .4s; -> 모두 적용ㅇ!
+    예) transition: .4s; -> 모두 적용ㅇ!
+    예) transition: margin-top .3s ease-in, height 2s linear 1s;
+    -> 속시이지 순으로 콤마를 사용하면 다양하게 설정 가능!
+
+2. 시간 (transition-duration)
+- 애니메이션 시간 : 초단위(s)
+
+3. 이징(easing -> transition-timing-function)
+ - 가속도
+    1) ease : 앞뒤로 약간씩 느림(기본값)
+    2) ease-in : 처음에 천천히 나중에 빨라짐
+    3) ease-out : 나중에 천천히 첨에 빠름
+    4) ease-in-out : 처음과 끝에 천ㅊ너히
+    5) linear : 등속도
+    -> 베지어 곡선으로 매우 다채로운 가속도 생성 가능!
+
+    참고) https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_speed
+
+4. 지연(transition-delay) - 지연시간 즉, 처음에 대기시간(초단위 : s)
+
+5. 적용법 - 오버 시 또는 클래스로 중간에 값을 변경하는 경우
+            시작과 다시 복귀할 떄 애니메이션이 같다면 
+            오버시가 아닌 원본에 트랜지션을 주면 된다.
+            만약에 다르다면 오버시(또는 클래스)에 따로 트랜지션을
+            설정하면 다르게 애니메이션 된다!
+
+*******************************************************************/
 
 /* 캐릭터 설명 타이틀 */
 .cd h3{
-    font-family: "궁서";
-    font-size: 24px;
+    font-family: 'Single Day', cursive;
+    font-size: 26px;
     font-weight: normal;
     padding: 15px 10px 5px;
     /* 줄바꿈 방지 */
-    white-space: nowrap;
+    /* white-space: nowrap; */
     letter-spacing: -1px;
 }
 
@@ -133,8 +197,8 @@ body{
 
 /* 캐릭터 설명문단 */
 .cd p{
-    font-family: 궁서;
-    font-size: 16px;
+    font-family: 'Yeon Sung', 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 18px;
     line-height: 1.7;
     padding: 10px;
     text-align: justify;
