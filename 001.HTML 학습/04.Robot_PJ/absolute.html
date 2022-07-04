@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>positon - absolute</title>
+    <style>
+        .bx{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            font-size: 24px;
+            /* 글자 가로 중앙 */
+            text-align: center;
+            /* 글자 세로 중앙 */
+            line-height: 100px;
+            font-weight: bold;
+        }
+
+        #a1{
+            position: absolute;
+            /********************************************************************************** 
+            [ 3. absolute 포지션 ]
+
+            1) absolute 포지션은 위치이동값을 쓰기 전과 후로 나눠볼 수 있다.
+             
+                (1)위치 이동값을 쓰지 않은 경우
+                
+                - 자기보다 위에있는 static한 요소를 존중하여 그 아래에 위치함
+                (젠틀엡솔루트)
+                + 어떤 요소의 자식요소로 앱솔루트를 주는 경우 위치값을 안쓸때 그 부모박스안에 
+                가만히 있는다(젠틀앱솔루트)
+
+                -자기봗 아래쪽에 있는 static한 요소는 앱솔루트를 인식하지 못하여 같은 자리에 위치함
+                (즉, 위로 올라옴)
+
+                (2) 위치 이동값을 쓴 경우
+
+                - 위치이동값을 사용한 부분에 대해서만 앱솔루트가 위치를 잡을때 기준이 되는
+                부모요소를 찾는다
+                일반적으로 부모요소란 싸고있는 요소지만 앱솔루트가 위치를 잡기위한 기준이 되는 부모는
+                static이 아닌 요소가 부모다.
+
+                - static이 아닌 포지션이란?
+                relative / absolute / fixed / sticky
+
+                - 위치이동값을 쓰지 않는 부분에 대해서는 부모를 찾지 않고 젠틀하다.
+
+                - 부모자격이 있는 부모요소들 중 가장 가까운 것이 부모가 된다.
+
+                - 만약 부모자격이 모두 없으면 보이는 화면 (windew)을 기준한다
+
+                -> 보이는 화면은 body가 아니다
+                스크롤이 생겨도 스크롤 위쪽에 보이는 화면만 지칭한다
+
+                -> 또한 width나 height 값을 %로 줄 경우 부모자격이 있는 요소를 기준하여 크기를 잡는다
+
+
+                2) 앱솔루트 가로, 세로 크기를 주지 않은 경우 일반적으로 block요소이므로
+                width:auto 로서 부모끝까지 차지하지만 앱솔루트는
+                내용만큼 그 크기가 자동으로 설정됨!
+                [-> 앱솔루트 판타롱스타킹]
+
+                3) 인라인 요소에 앱솔루트를 준 경우
+                자동으로 displat:block로 설정됨 
+                이유는 자동크기를 설정할 경우 블록이 아니면 크기 설정이 안되므로 자동전환된다
+                -> 일반적으로 모든 앱솔루트는 block이다.
+            **********************************************************************************/
+
+            background: url(./ab_img/ab1.jpg) no-repeat center/cover;
+            color: #fff;
+        }
+
+        #s1{
+            background: aqua;
+        }
+
+       #r1{
+        position: relative;
+        /* top: 50px;
+        left: 50px;
+        z-index: 1; */
+        
+        background: url(./ab_img/ab5.jpg) no-repeat center/cover;
+        color: #fff;
+       }
+
+       #r2{
+        position: relative;
+        background: url(./ab_img/ab4.jpg) no-repeat center/cover;
+        color: #fff;
+        bottom: 70px;right: -86px;
+        /* z-index: -1; */
+        /* static보다 아래는 마이너스 값 */
+       }
+
+       /* 부모를 찾는 앱솔루트 */
+       .bx2{
+        border: 2px dotted orange;
+        padding: 50px;
+        font-size: 24px;
+        text-align: center;
+       }
+
+
+       /* 각 부모박스 */
+       .s5{
+        position: relative;
+        background-color: lightblue;
+       }
+
+       .s6{
+        position: relative;
+        background-color: lightcoral;
+       }
+
+       .s7{
+        position: relative;
+        background-color: lightpink;
+       }
+
+       .s8{
+        position: relative;
+        background-color: lightgreen;
+       }
+
+       /* 부모를 찾는 앱솔루트 박스 */
+       .abs{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+
+        color: #fff;
+        background: url(./ab_img/ab1.jpg) no-repeat center/cover;
+       }
+
+       .a4{
+        top: 0;
+        left: 0;
+        /* 나의 부모는? */
+        width: 20%;
+        height: 40%;
+        /* 앱솔루트인데 %로 가로 , 세로 크기를 설정할 경우 부모자격요소를 기준한다 */
+       }
+
+       /* 앱솔루트 : 판타롱스타킹 */
+       .a5{
+        position: absolute;
+        /* 크기를 안주면 내용만큼 늘어남 */
+        top: 50%;
+        right: 10%;
+        /* 부모는 보이는 화면 */
+        z-index: 9;
+       }
+
+       .a5 img{
+        vertical-align: top;
+        /* 하단 간극 없음 */
+
+       }
+
+       /* span을 앱솔루트로 */
+       .spabs{
+        position: absolute;
+        bottom: 0; right: 0;
+        border: 4px dotted red;
+       }
+
+       /* 앱솔루트 끼리는 서로 겹친다 */
+       .absimg{
+        width: 92px; height: 115px;
+        border: 4px ridge purple;
+        /* ridge 액자모양 */
+       }
+
+       /* 이미지가 앱솔루트 */
+       .absimg img{
+        position: absolute;
+        /* 위치값을 안잡으면 그 박스에 그대로 있는 젠틀 앱솔루트 상태를 유지한다
+        -> 앱솔루트끼리의 형재요소는 서로 겹친다 
+        나중에 그려진 요소가 위에 온다 (z-index 조절 가능)
+        */
+       }
+
+       /* 두번째 (위에있는것) 닥스를 투명하게 변경 */
+       .absimg img:nth-child(2){
+        opacity: 0;
+        /* opacitiy는 투명도 0 투명, 1 불투명, 0.n 반투명 */
+        transition: 1s;
+
+       }
+
+       /* 박스에 오버시 닥스 보이기 */
+       .absimg img:nth-child(2):hover{
+        opacity: 1;
+       }
+
+    </style>
+</head>
+<body>
+    <div class="bx" id="r1">r1</div>
+    <div class="bx" id="s1">s1</div>
+    <div class="bx" id="a1">a1</div>
+    <div class="bx" id="r2">r2</div>
+    <div class="bx" id="s2">s2</div>
+
+    <!-- 앱솔루트 : 판타롱 스타킹 -->
+    <div class="a5">
+        <img src="./ab_img/ab2.jpg" alt="타노스">
+    </div>
+
+    <!-- 앱솔루트끼리는 서로 겹친다 -->
+    <div class="absimg">
+        <img src="./ab_img/ab3.jpg" alt="토르">
+        <img src="./ab_img/ab4.jpg" alt="닥스">
+    </div>
+
+    <!-- 부모를 찾는 앱솔루트 -->
+    <div class="bx2 s5">s5
+        <div class="bx2 s6">s6
+            <div class="bx2 s7">s7
+                <div class="bx2 s8">s8
+                    <div class="abs a3">a3</div>
+                    <div class="abs a4">a4</div>
+                    <span class="spabs">
+                        나는 span 앱솔루트 입니다.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
