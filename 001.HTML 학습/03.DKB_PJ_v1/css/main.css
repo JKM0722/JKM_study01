@@ -54,6 +54,8 @@ body{
     margin: 0 .5%;
     /* 블록요소 옆으로 흐르게 */
     float: left;
+    position: relative;
+    /* 부모자격 */
 
     /* 가로세로 크기나 마진값으로 %를 쓰면 기준은 싸고있는 부모박스가 되어벌인다 ㄹㅇ ㅋㅋ */
 }
@@ -66,7 +68,7 @@ body{
 
 /* .cat에 오버시 .ci 변경 */
 .cat:hover .ci{
-    margin-top: -53%;
+    margin-top: -52%;
 }
 
 /* 하위 캐릭터 이미지
@@ -117,6 +119,7 @@ body{
 
 /* 캐릭터 설명박스 */
 .cd{
+    position: absolute;
     /* 배경: 색이반고위/크 */
     background: url(../images/eachBG.jpg) no-repeat center /cover;
 
@@ -177,11 +180,11 @@ https://www.w3schools.com/css/css3_transitions.asp
 /* 캐릭터 설명 타이틀 */
 .cd h3{
     font-family: 'Single Day', cursive;
-    font-size: 26px;
+    font-size: min(1.9vw, 26px);
     font-weight: normal;
     padding: 15px 10px 5px;
     /* 줄바꿈 방지 */
-    /* white-space: nowrap; */
+    white-space: nowrap;
     letter-spacing: -1px;
 }
 
@@ -198,7 +201,7 @@ https://www.w3schools.com/css/css3_transitions.asp
 /* 캐릭터 설명문단 */
 .cd p{
     font-family: 'Yeon Sung', 'ZCOOL QingKe HuangYou', cursive;
-    font-size: 18px;
+    font-size: min(1.3vw, 18px);
     line-height: 1.7;
     padding: 10px;
     text-align: justify;

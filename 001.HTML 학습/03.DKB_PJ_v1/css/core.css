@@ -18,3 +18,14 @@ font-family: 'ZCOOL QingKe HuangYou', cursive; */
     */
     margin: 0 auto;
 }
+
+/* float설정 class */
+.fll>li{
+    float: left;
+}
+/* 플롯해제 */
+.fll::after{
+    content: '';
+    display: block;
+    clear: both;
+}
