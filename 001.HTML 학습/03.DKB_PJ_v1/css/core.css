@@ -3,11 +3,26 @@
 /* 공통 class / 웹폰트  */
 
 /* 웹폰드 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Single+Day&family=Yeon+Sung&family=ZCOOL+QingKe+HuangYou&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&family=Yeon+Sung&family=ZCOOL+QingKe+HuangYou&family=Nanum+Gothic:wght@400;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap'); */
 
-/* font-family: 'Single Day', cursive;
+/* 
+font-family: 'Single Day', cursive;
 font-family: 'Yeon Sung', cursive;
-font-family: 'ZCOOL QingKe HuangYou', cursive; */
+font-family: 'ZCOOL QingKe HuangYou', cursive;
+font-family: 'Nanum Gothic', sans-serif;
+*/
+
+/* 폰트 상대단위를 위한 html 폰트크기 설정 */
+html{
+    font-size: 10px;
+    /* 글자체나 글자크기는 하위요소 상속
+    10px로 html에 설정한 이유는 상대단위인 rem으로 ㅖ산하기 쉽게하기 위해 */
+}
+/* 전체웹폰트 일반 적용 */
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+}
 
 
 /* 속박스 class */
@@ -29,3 +44,34 @@ font-family: 'ZCOOL QingKe HuangYou', cursive; */
     display: block;
     clear: both;
 }
+
+/* IR(image Replacement) */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 스크롤바 디자인 클라스 */
+/* -webkit- 밴더사명(크롬, 사파리) 접두어
+(참고 : -ms-(ie), -o-(오페라), -moz-(파이어폭스))*/
+.scbar::-webkit-scrollbar{
+    /* 전체 스크롤바 크기 변경 */
+    width:7px;
+}
+
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바 */
+    background: #666;
+    border-radius: 5px;
+}
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바 트랙*/
+    background: #ddd;
+    border-radius: 5px;
+}
+
+
+
+
