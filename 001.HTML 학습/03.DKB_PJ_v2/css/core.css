@@ -34,15 +34,18 @@ body{
     margin: 0 auto;
 }
 
-/* float설정 class */
-.fll>li{
-    float: left;
+/* 플렉스 박스 클래스 */
+.fbx{
+    /* 플렉스박스 */
+    display: flex;
 }
-/* 플롯해제 */
-.fll::after{
-    content: '';
-    display: block;
-    clear: both;
+.fxw{
+    /* 랩핑박스 */
+    flex-wrap: wrap;
+}
+.jcc{
+    /* 수평방향 중앙정렬 */
+    justify-content: center;
 }
 
 /* IR(image Replacement) */
