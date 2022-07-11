@@ -72,6 +72,14 @@
           3) flex-basis: 설정값(px, %, em, rem, vw등)
           -> width 가로크기를 설정하는 속성
           -> 만약 0을 쓰면 속성값 없음
+
+          ___________________________________________________
+
+          [ 자식요소 속성 중 order란? ]
+          - 원하는 순서로 정해서 박스가 나열되게 함
+          단, 부모 플렉스 박스에 flex-direction을 주지말것(order쓰기 때문)
+
+          소스참고: https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
         */
         
       }
@@ -281,6 +289,35 @@
 
       }
 
+      /* 타이틀박스 7 */
+      .t7{
+        top: 50px;
+        right: 50px;
+        left: auto;
+        /* 기존 left 세팅 해제 */
+        width: 450px;
+        height: 200px;
+
+        /* 플렉스박스 */
+        display: flex;
+        /* 랩핑박스 */
+        flex-wrap: wrap;
+        /* 수평정렬 */
+        justify-content: space-evenly;
+        /* 수직정렬(여러줄) */
+        align-content: space-around;
+      }
+
+      /* 자체 응용 - 줄바꿈을 위한 li */
+      /* 원리는 줄바꿈을 할 부분에서 가로크기 100%를 차지하게 하여 줄바꿈 효과를 준다 */
+      .t7 li.brk{
+        /* width: 100%; */
+        flex-basis: 100%;
+        /* flex-basis는 width와 같다 */
+        /* 기존 디자인을 없애고 안보이게 처리함 */
+        height: 0;
+        border: none;
+      }
 
 
 
@@ -357,6 +394,24 @@
         <li>L</li>
         <li>D</li>
         
+        <li>W</li>
+        <li>O</li>
+        <li>R</li>
+        <li>L</li>
+        <li>D</li>
+      </ol>
+
+      <!-- 타이틀박스 7 -->
+      <ol class="tit t7">
+        <li>L</li>
+        <li>O</li>
+        <li>T</li>
+        <li>T</li>
+        <li>E</li>
+
+        <!-- 줄바꿈요소 -->
+        <li class="brk"></li>
+
         <li>W</li>
         <li>O</li>
         <li>R</li>
