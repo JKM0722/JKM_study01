@@ -5,9 +5,9 @@
 /* 공사중 표시 
 별표(*)는 모든요소 선택
 */
-body *{
+/* body *{
     outline: 2px dashed gray;
-}
+} */
 /* 외곽선 - 박스요소의 외곽선만 표현
 박스 바깥쪽으로 생성됨
 (자신또는 다른요소에 영향이 없음)
@@ -21,11 +21,11 @@ outline: 두께 종류 색상; */
     border-bottom: 1px solid #ccc;
     background: #fff;
 }
-.top{
-    /* height: 125px; */
-    /* position: relative; */
-    /* 부모자격 없앰 이유는 서브메뉴배경 li 가상요소가 끝까지 가야해서 */
-}
+/* .top{
+} */
+/* height: 125px; */
+/* position: relative; */
+/* 부모자격 없앰 이유는 서브메뉴배경 li 가상요소가 끝까지 가야해서 */
 /* 1-1 메인로고 */
 .logo{
     text-align: center;
@@ -208,6 +208,79 @@ outline: 두께 종류 색상; */
 }
 
 /************************************************ 3. 하단영역 ************************************************/
+/* 겉박스 */
+#info{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 속박스 */
 .info {
-    height: 240px;
+    min-height: 240px;
+    outline: 2px dashed red;
+    position: relative;
+}
+
+/**************************** 3-1 하단링크 ****************************/
+.blink{
+    padding-top: 5px;
+}
+
+.blink ul{
+ margin: 0 auto;
+ width: 804px;
+}
+
+.blink li{
+    padding: 0 15px;
+}
+
+.blink a{
+    /* 글자세팅 */
+    color: #222;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2.8;
+}
+
+/**************************** 3-2 회사정보 ****************************/
+.addr{
+    padding: 1rem;
+}
+.addr address{
+    /* 글자세팅 */
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-style: normal;
+    text-align: center;
+    line-height: 2;
+
+    width: 804px;
+    margin: 0 auto;
+    border: 4px double #222;
+    padding: 1rem;
+
+    /* 보더, 패딩 포함 크기유지! bxb */
+    box-sizing: border-box;
+}
+/**************************** 3-3 하단로고 ****************************/
+.blogo{
+    text-align: center;
+}
+
+/**************************** 3-4 바로가기 ****************************/
+.brand{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    /* 부모는 .info */
+}
+
+.brand select{
+    /* 글자색 */
+    color: #222;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2.8;
+
+    padding: 0.5rem;
 }
