@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>유형1. 가로네비 서브별 드롭다운 세로형 - flex</title>
+    <title>유형4. 4. 세로네비 서브별 드롭다운 세로형</title>
     <style>
       /* 초기화 */
       html,
@@ -27,12 +27,15 @@
       /* GNB메뉴박스 */
       .gnb {
         background-color: lightskyblue;
+        width: 200px;
+        height: 800px;
       }
       /* ul 초기화 */
       .gnb ul {
         width: 800px;
         margin: 0 auto;
         display: flex;
+        flex-direction: column;
       }
       
       /* 가상요소로 clear설정하기 */
@@ -123,7 +126,8 @@
       
       /* 서브메뉴 */
       .smenu{
-        position: absolute;
+        /* position: absolute;
+        -> 앱솔루트가 아니면 자리를 차지한다 */
         width: 200px;
         /* 서브메뉴박스 숨기기 */
         height: 0; /* 1 */
@@ -181,58 +185,67 @@
         line-height: 50;
         position: relative;
         z-index: 1;
+        width: calc(100% - 200px);
+      }
+
+
+      /* 전체 컨텐츠 랩핑박스 */
+      .wrap{
+        display: flex;
       }
     </style>
   </head>
   <body>
-    <h1>유형1. 가로네비 서브별 드롭다운 세로형</h1>
-    <!-- GNB 네비게이션 -->
-    <nav class="gnb">
-      <ul>
-        <li>
-          <a href="#"><span>Home</span></a>
-        </li>
-        <li>
-          <a href="#"><span>웹개발</span></a>
-          <!-- 서브메뉴 -->
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="#">웹디자인</a>
-              </li>
-              <li>
-                <a href="#">HTML5+CSS3</a>
-              </li>
-              <li>
-                <a href="#">jQuery</a>
-              </li>
-              <li>
-                <a href="#">웹+모바일</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#"><span>게시판</span></a>
-          <!-- 서브메뉴 -->
-          <div class="smenu">
-            <ol>
-              <li>
-                <a href="#">Q&amp;A</a>
-              </li>
-              <li>
-                <a href="#">방명록</a>
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li>
-          <a href="#"><span>프로필</span></a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- 내용박스 -->
-    <div class="cont"><span>본문내용</span></div>
-  </body>
+    <h1>유형4. 세로네비 서브별 드롭다운 세로형</h1>
+    <div class="wrap">
+      <!-- GNB 네비게이션 -->
+      <nav class="gnb">
+        <ul>
+          <li>
+            <a href="#"><span>Home</span></a>
+          </li>
+          <li>
+            <a href="#"><span>웹개발</span></a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">웹디자인</a>
+                </li>
+                <li>
+                  <a href="#">HTML5+CSS3</a>
+                </li>
+                <li>
+                  <a href="#">jQuery</a>
+                </li>
+                <li>
+                  <a href="#">웹+모바일</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <a href="#"><span>게시판</span></a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+              <ol>
+                <li>
+                  <a href="#">Q&amp;A</a>
+                </li>
+                <li>
+                  <a href="#">방명록</a>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <a href="#"><span>프로필</span></a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- 내용박스 -->
+      <div class="cont"><span>본문내용</span></div>
+    </div><!-- /.wrap -->
+    </body>
 </html>
