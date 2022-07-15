@@ -221,6 +221,8 @@
   background-color: transparent;
   font-size: 10vw;
 
+    /* 처음에 안보임 */
+    display: none;
 }
 
 /* 햄버거 가상요소 */
