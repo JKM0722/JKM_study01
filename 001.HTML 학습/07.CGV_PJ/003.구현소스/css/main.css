@@ -317,6 +317,8 @@ body{
 /* 예고편 ul */
 .mlist ul{
     display: flex;
+    /* 원근설정 */
+    perspective: 480px;
 }
 
 /* 예고편 li */
@@ -326,6 +328,11 @@ body{
     /* width: 99px;
     height: 140px; */
     flex: 1;
+    transform: rotateX(30deg);
+    /* 회전축 변경 */
+    transform-origin: bottom;
+    transition: transform .3s ease-out;
+    /* 트랜지션 : 속시이지 */
 
     overflow: hidden;
     /* 부모자격이 있는 요소에서 숨기기가 적용됨
@@ -335,6 +342,8 @@ body{
 /* 오버시 아웃라인 보이기 */
 .mlist>ul>li:hover{
     outline: 1px solid aqua;
+    transform: rotateX(0deg);
+    z-index: 1;
 }
 
 .mlist>ul>li+li{
