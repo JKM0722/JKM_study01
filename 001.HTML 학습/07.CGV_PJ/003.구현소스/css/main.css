@@ -11,9 +11,9 @@ body{
 }
 
 /* 공사중표시 */
-body *{
+/* body *{
     outline: 1px dotted lime;
-}
+} */
 
 /* 공통클래스 */
 .ibx{
@@ -26,7 +26,7 @@ body *{
 /* 속박스 */
 .top{
     height: 80px;
-    background: url(../images/curtain.jpg) repeat-x top 0/100% ;
+    background: url(../images/curtain.jpg) repeat-x;
     position: relative;
     /* 부모자격 - .gnb */
 }
@@ -59,19 +59,208 @@ body *{
     bottom: 5px;
     right: 15px;
     /* 부모는? - .top */
+    z-index: 999;
 }
 
 /* GNB ul */
 .glist{
     display: flex;
+    margin-right: 50px;
+    position: relative;
+    z-index: 2;
 }
 /* GNB li 리스트 */
 .glist>li{
+    position: relative;
     font-family: 'Jua', sans-serif;
     font-size: 20px;
     padding: 0 10px;
+    padding-bottom: 5px;
+    /* 서브메뉴와 이어지게 하단공간 확장 */
 }
 
+/* gnb 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 5px);
+    /* 부모 - 싸고있는 li */
+
+    width: 140px;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+    /* 처음에 안보임 */
+    display: none;
+}
+
+.glist>li:hover .smenu{
+    display: block;
+}
+
+/* 가상요소로 서브메뉴 삼각형 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 삼각형 만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid#353535;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+    
+}
+
+/* 서브메뉴 li */
+.smenu li{
+    font-size: 16px;
+    line-height: 2;
+}
+
+/* 서브메뉴 a요소 */
+.smenu a{
+    display: block;
+    /* li요소 끝까지 차지 */
+}
+
+/* 서브메뉴 li에 마우스 오버시 글자색 빨강 */
+.smenu a:hover{
+    color: red;
+}
+
+/* 서브메뉴 a에 오버시 가상요소 이모지 보이기 */
+/* 이보지는 윈도우키 + 세미콜론 단축키 */
+/* "영화"하위메뉴 이모지 */
+.glist>li:nth-child(1) .smenu li a:hover::after{
+    content: '⏱';
+    display: block;
+    float: right;
+    width: 10px;
+    height: 10px;
+}
+.glist>li:nth-child(2) .smenu li a:hover::after{
+    content: '🎁';
+    display: block;
+    float: right;
+    width: 10px;
+    height: 10px;
+}
+.glist>li:nth-child(3) .smenu li a:hover::after{
+    content: '🎫';
+    display: block;
+    float: right;
+    width: 10px;
+    height: 10px;
+}
+.glist>li:nth-child(4) .smenu li a:hover::after{
+    content: '👮‍♀️';
+    display: block;
+    float: right;
+    width: 10px;
+    height: 10px;
+}
+
+/* 서브메뉴 중 li 보더탑 구분선 class */
+.bdt{
+    border-top: 1px solid #ccc;
+}
+
+/* 영사기 박스 */
+#cam{
+    position: absolute;
+    bottom: -9px;
+    right: 0px;
+}
+
+/* 영사기 이미지 */
+#cam img{
+    width: 50px;
+    position: relative;
+    z-index: 1;
+    /* 영사기 회전 */
+    transform: rotate(25deg);
+    transition: .5s ease-out .3s;
+}
+
+/* GNB에 마우스 오버시 영사기 회전하기 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    transition: .5s ease-out;
+
+}
+
+/* 빔박스 */
+.beam{
+    position: absolute;
+    top: -16px;
+    right: 9px;
+    width: 0; /* 200px-> 오버시 200 */
+    height: 70px;
+    /* outline: 1px dotted yellow; */
+    background: url(../images/bim.png) no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    transition: width .3s linear;
+    /* linear 등속도 */
+    opacity: .9;
+    
+}
+
+/* GNB에 마우스 오버시 영사기 쏘기 */
+.gnb:hover .beam{
+    width: 200px;
+    transition: width .3s linear .5s;
+    animation: beamAni .01s linear infinite alternate;
+}
+
+/* 빔이 너울거리도록 애니메이션 */
+@keyframes beamAni {
+    from{
+        opacity: 0.9;
+    }
+    to{
+        opacity: 0.5;
+    }
+}
+
+/* 영화보러 가는 길 애니박스 */
+.goMV{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 144px;
+    height: 80px;
+    outline: 1px dashed yellow;
+}
+
+/* 글자커버 */
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/curtain.jpg) no-repeat;
+    
+    /* 글자설정 */
+    font-family: 'Cute Font', cursive;
+    color: #fff;
+    font-size: 20px;
+    line-height: 80px;
+    text-align: center;
+}
 /**************************************************** 2. 메인영역 ****************************************************/
 /* 속박스 */
 .cont{
@@ -202,6 +391,8 @@ body *{
     /* 최대 17px, 화면가로의 1.5% */
     letter-spacing: -1px;
 }
+
+
 /**************************************************** 3. 하단영역 ****************************************************/
 .info{
     height: 100px;
