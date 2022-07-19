@@ -25,6 +25,17 @@
   border-bottom: 1px solid #ccc;
   /* 배경흰색 */
   background-color: #fff;
+  transform: translateY(-100%);
+
+  animation: topAni 1s ease-out 4s forwards;
+  z-index: 999;
+}
+
+/* 상단영역 애니메이션 */
+@keyframes topAni {
+  to{
+    transform: translateY(0%);
+  }
 }
 
 /* 속박스 */
@@ -231,13 +242,13 @@
 
 }
 
-.top.on .ham{
+body.on .ham{
   transform: translateY(-50%) scale(1.2);
   color: #fff;
   z-index: 999;
 }
 
-.top.on .ham::before{
+body.on .ham::before{
   content: '×';
 
 }
