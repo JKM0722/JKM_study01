@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+
+/* 메인박스 */
+.cont{
+    text-align: center;
+}
+
+
+.cont img{
+    max-width: 100%;
+    /* 이미지에 최대가로크기 100%란 
+    싸고있는 박스가 작아지면 자동으로 100%로 전환됨 */
+}
