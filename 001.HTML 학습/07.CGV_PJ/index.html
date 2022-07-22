@@ -6,37 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGV에 오신것을 환영합니다.</title>
     <link rel="stylesheet" href="./003.구현소스/css/main.css">
-    <!-- JS코딩구역 -->
-    <script>
-        /************************************************************************************************** 
-            함수명: 멍멍
-            기능: 포스터메뉴 클릭 시 유튜브 iframe src속성값 변경하여 영화바꾸기
-        **************************************************************************************************/
-       function 멍멍(먹이){
-            //먹이 - 전달값을 담는 변수
-            // -> 먹이 변수에 영화 고유코드를 담는다
-            // 1. 호출 및 전달값 확인
-            console.log("먹이줘", 먹이);
-
-            // 2. 변경대상 : 아이프레임 -> #screen iframe
-            var 아이 = document.querySelector("#screen iframe");
-
-            // 3. 변경내용 : 아이프레임의 src 속성값 변경하기
-            아이.src = 
-            "https://www.youtube.com/embed/"
-            +먹이+
-            "?autoplay=1";
-
-            //이퀄(=)을 만나는 순간 이퀄 오른쪽의 값을 만든 후 
-            //왼쪽의 변수나 속성에 값을 넣는다
-
-            //전달변수 먹이에 담긴 값을 다른 문자값과 합쳐서 하나의 문자로 만들어준다.
-
-
-       }/////////////멍멍 함수/////////////////////////////////////////////////////////////////////////////
-       ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-    </script>
+    <link rel="stylesheet" href="./003.구현소스/css/midea.css">
+    <!--  외부파일 불러오기  -->
+    <script src="./003.구현소스/js/main.js"></script>
 </head>
 <body>
     <!-- 1. 상단영역 -->
@@ -124,8 +96,25 @@
                 </aside>
             </nav>
             <!-- 극장가는길 애니박스 -->
-            <div class="goMV">
+            <div class="goMV" title="구글지도보기 클릭!">
                 <div class="cover">극장가는길</div>
+                <!-- 애니박스 -->
+                <div class="anibx">
+                    <!-- 걷는 소년 박스 -->
+                    <div class="ani">
+                        <div class="ir">걷는소년</div>
+                    </div>
+                    <!-- 몬스터 애니박스 -->
+                    <div class="ani2">
+                        <div class="ir">쿠키몬스터</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 구글맵박스 -->
+            <div class="gmap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5320.903389159361!2d126.97862038716565!3d37.53554963043916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca23fb451c4f1%3A0xe196919c152a17a0!2z7KCE7J-B6riw64WQ6rSA!5e0!3m2!1sko!2skr!4v1658455547691!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- 닫기버튼 -->
+                <a class="cbtn" href="#">×</a>
             </div>
         </header>
     </div>
@@ -142,7 +131,7 @@
             <nav class="mlist">
                 <ul>
                     <li>
-                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m1.jpg" alt="닥터스트레인지2">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -153,7 +142,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="멍멍('DSEfRVqjbFA')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m2.jpg" alt="주라기월드3">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -164,7 +153,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="멍멍('DpVAb7Bi5UQ')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m3.jpg" alt="브로커">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -175,7 +164,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="멍멍('aw9j_23nORs')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m4.jpg" alt="범죄도시2">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -186,7 +175,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="멍멍('wXWiVmTEzkA')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m5.jpg" alt="몬스터싱어">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -197,7 +186,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="멍멍('W7edvITC9g4')">
+                        <a href="#">
                             <img src="./003.구현소스/images/m6.jpg" alt="스파이더맨:노웨이홈">
                             <!-- 영화정보 -->
                             <ol class="movtxt">

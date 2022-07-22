@@ -242,7 +242,13 @@ body{
     left: 0;
     width: 144px;
     height: 80px;
-    outline: 1px dashed yellow;
+    /* outline: 1px dashed yellow; */
+
+    /* 원근설정 */
+    perspective: 480px;
+
+    
+    cursor: pointer;
 }
 
 /* 글자커버 */
@@ -260,6 +266,45 @@ body{
     font-size: 20px;
     line-height: 80px;
     text-align: center;
+
+    /* 들여쓰기 */
+    text-indent: -200%;
+    overflow: hidden;
+
+    /* 애니메이션 */
+    animation: txtAni 3s cubic-bezier(0.18, 1.17, 0.91, -0.14) infinite;
+
+    /* 트랜스폼 축변경 */
+    transform-origin: top;
+
+    /* 트랜지션 */
+    transition: transform .6s ease-in-out ;
+
+    z-index: 1;
+
+}
+
+/* 오버시 x축 회전하기 + 클래스 on일떄*/
+.goMV:hover .cover, .goMV.on .cover{
+    transform: rotateX(80deg);
+    border: 1px solid aquamarine;
+    box-sizing: border-box;
+}
+
+/* 텍스트 애니 키프레임 */
+@keyframes txtAni {
+    0%{
+        text-indent: -200%;
+    }
+    /* 20%{
+        text-indent: 0%;
+    }
+    80%{
+        text-indent: 0%;
+    } */
+    100%{
+        text-indent: 200%;
+    }
 }
 /**************************************************** 2. 메인영역 ****************************************************/
 /* 속박스 */
@@ -339,7 +384,8 @@ body{
     중간에 자격이 없으면 숨기기줘도 소용이 없음 */
 }
 
-/* 오버시 아웃라인 보이기 */
+/* 오버시 + 클래스 on일때 아웃라인 보이기 / 일어나기 */
+.mlist>ul>li.on,
 .mlist>ul>li:hover{
     outline: 1px solid aqua;
     transform: rotateX(0deg);
@@ -384,6 +430,8 @@ body{
 
     white-space: nowrap;
 
+
+
     /* 트랜지션 */
     transition: top .3s ease-out;
 }
@@ -401,6 +449,142 @@ body{
     letter-spacing: -1px;
 }
 
+/* 애니박스 */
+.anibx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 부모는 .goMV */
+
+    /* 배경 */
+    background-image: url(../images/street.jpg);
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+
+    animation: stAni 4s linear infinite;
+}
+
+@keyframes stAni {
+    to{
+        background-position-x: -136px;
+    }
+    
+}
+
+/* 걷는소년박스 */
+.ani{
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url(../images/spAni03.png);
+    /* 축소된 배경이미지 크기 계산
+    1472:325 = x:80
+    x= 362 -> 가로크기 362 
+    */
+    
+    /* 장면넘기기 애니메이션 
+        1. 키프레임 세팅법:
+        1) x축 배경이동 세팅(값이 마이너스)
+        background-position-x: -가로전체크기px;
+        2) y축 배경이동 세팅
+        background-position-y: - 세로전체크기px;
+        (유의사항 : 이미지 크기가 변경되었다면 비례식으로 정확한 크기를 계산하여 쓸것)
+
+        2. 애니메이션 호출법:
+
+        1) x축 애니
+        animation: 키프레임명 시간 steps(장면수) infinite;
+
+        2) x,y축 애니
+        animation: 
+        x축키프레임명 시간 steps(장면수) infinite,
+        y축키프레임명 시간 steps(줄수) infinite;
+        x축 steps(장면수), y축 steps(줄수)
+
+        -> steps(장면수)는 전체길이의 장면을 설정하여 한장면씩 화면에 찍어서 셀애니메이션이 되게하는 역할을 한다
+        여기서는 이징이 필요없다.
+    */
+
+
+    background-size: auto 100%;
+
+    /* outline: 2px dotted red; */
+
+    animation: wAni 1s steps(8) infinite  ;
+}
+
+@keyframes wAni {
+    to{
+        background-position-x: -362px;
+    }
+    
+}
+
+/* 몬스터박스 */
+/* 걷는소년박스 */
+.ani2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-image: url(../images/spAni02.png);
+    background-size: 240px auto;
+    /* 배경이미지 크기를 6장면 이니까 한개당 40px로 계산 */
+
+    /* outline: 2px dotted blue; */
+    animation: 
+    monAniX 1s steps(6)infinite,
+    monAniY 3s steps(3)infinite;
+}
+
+/* 몬스터 키프레임 - x, y축 따로 키프레임 작성 */
+@keyframes monAniX {
+    to{
+        background-position-x: -240px;
+    }
+    
+}
+@keyframes monAniY {
+    to{
+        background-position-y: -120px;
+    }
+    
+}
+
+/* 구글 맵박스 */
+.gmap{
+    position: fixed;
+    top: -50%;
+    /* 처음에 위에 있음 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 450px;
+    border: 20px solid lightgray;
+    z-index: 9;
+    border-radius: 10px;
+    transition: top 1s cubic-bezier(0, 1.8, 1, 1);
+}
+
+/* 클래스 on을 줬을떄 위치이동설정 */
+.gmap.on{
+    top: 50%;
+}
+
+/* 닫기버튼 */
+.cbtn{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+    
+}
 
 /**************************************************** 3. 하단영역 ****************************************************/
 .info{
