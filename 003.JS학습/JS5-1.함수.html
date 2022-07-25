@@ -7,6 +7,7 @@
     <style>
         body {
             background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564) no-repeat fixed center/cover;
+            /* transition: .5s; */
         }
 
         h2 {
@@ -285,7 +286,7 @@
         }; ///////// myHome 함수 //////////
 
         // 할당형 익명함수를 함수코드 아래쪽에서 호출
-        // myHome("익명함수 아래에서 호출!");
+        myHome("익명함수 아래에서 호출!");
 
 
         ///// 익명함수를 활용하여 배경이미지, 글자 셋팅하기 ///
@@ -302,10 +303,31 @@
         // -> 함수는 외부함수 또는 익명함수 사용
         // -> 시간은 1/1000초로 단위없는 숫자 사용
         // 예) 1초는 1000이라고 쓰면됨!
-
+        
         // 배열순번변수
-       
+        let seq = 0;
 
+        setInterval(()=>{
+            //순번찍기
+            console.log("이번순번은?", seq)
+
+            // body에 배경 이미지 변경하기
+            document.body.style.backgroundImage = 
+            `url(${scene[seq]})`;
+
+            //순번증가
+            seq++;
+            //한계값 체크
+            if(seq===3)seq=0; //처음으로
+
+        },3000); //인터발함수//////
+        
+        // 파라미터 변수 없는 함수가 전달값을 받을수 있나?
+        //글자찍기 함수////
+        function Fn(){
+
+        }/////////////fn함수
+       
         
 
     </script>
