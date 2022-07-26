@@ -34,7 +34,7 @@ $(() => {
             case "회원가입":
                 url = "member";
                 break;
-                default:url="etc";
+
             case "트위터 바로가기":
                 url = "twitter";
                 break;
@@ -44,7 +44,7 @@ $(() => {
             case "페이스북 바로가기":
                 url = "face";
                 break;
-
+            default:url="etc";
         } ///////////////switch case////////////
 
 

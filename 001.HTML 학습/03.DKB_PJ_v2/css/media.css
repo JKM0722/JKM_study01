@@ -96,6 +96,30 @@
         display: none;
     }
 
+    /* .tmenu.on{
+        display: block;
+    } */
+
+    /* body.on 일떄 보이기 */
+    body.on .tmenu{
+        display: block;
+    }
+
+    .tmenu>ul{
+            position: fixed;
+            z-index: 9999;
+            top: 87vh;
+            right: 50%;
+            transform: translateX(50%);
+        }
+    
+
+    .tmenu>ul>li>a {
+        font-size: 4vw;
+        color: #fff;
+        white-space: nowrap;
+    }
+
     /* 8. 하단 영역  */
     .info{
         min-height: auto;
