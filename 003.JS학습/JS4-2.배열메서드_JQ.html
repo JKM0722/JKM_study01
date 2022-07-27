@@ -35,7 +35,7 @@
             flex-wrap: wrap;
             justify-content: center;
             margin: 0;
-            padding: 0;
+            padding: 0;ㄴ
             list-style: none;
             overflow: hidden;
         }
@@ -107,15 +107,24 @@
             let mbtn = $('.mbtn');
             // (4) 선택박스 #sel -> 바인딩된 요소가 할당됨 
             let sel = $('#sel')
+            // (5) 중간배열 삭제, 삽입 선택박스
+            let anum = $("#anum")
+            // (6) 삭제 텍스트 박스
+            let delnum = $("#delnum")
 
 
 
             // 배열 메서드 1번 : join(구분자)
             // -> 배열사이에 구분자를 넣고 문자로 변환함
             // text(출력내용) -> 제이쿼리 텍스트 출력
+            
             const showArray = () => {
+                // 1. 배열값 화면출력
                 showit.text(fruit.join("*"));
-            };
+
+                // 2. 배열 중간삭제 / 삽입 선택박스 업데이트
+                anumFn();
+            };//////showarray 함수////////
             
             
             // 4. 첫 배열 출력하기 : showit에 출력
@@ -213,9 +222,34 @@
 
 
                 // 2-6. 중간배열삭제 버튼 클릭시 
-                // 배열 맨앞값을 삭제하기                
-                else if(btxt==="중간배열삭제"){} ///// else if
-                else if(btxt==="중간배열삽입"){} ///// else if
+                // 중간배열의 특정값을 삭제함             
+                else if(btxt==="중간배열삭제"){
+                    // 배열 메서드 6번 : splice
+                    // splice(순번, 지울개수)
+                    // 선택순번부터 지움
+                    // 순번은 anum 선택값, 지울개수는 delnum값
+                    fruit.splice(anum.val(),delnum.val());
+
+                    showArray();   
+                    
+                } ///// else if
+
+
+
+
+
+
+                // 2-7. 중간배열삽입 버튼 클릭시 
+                // 중간배열의 특정값을 삽입함       
+                else if(btxt==="중간배열삽입"){
+                    // 배열 메서드 7번 : splice
+                    // splice(순번,0,넣을값)
+                    // 선택순번 앞에 넣음
+                    // 넣을 값은 #sel 선택박스의 과일이름값
+                    fruit.splice(anum.val(),0,sel.val());
+
+                    showArray();
+                } ///// else if
 
 
             //////////////////////////////////////////////////////////////////
@@ -242,17 +276,22 @@
             // 7. 중간배열 지우기 또는 넣기위해
             // 현재 배열번호 선택박스와 지울개수 요소를 셋업
 
+            // 지울과일 선택박스 업데이트하기
+            // 세팅할 데이터 대상 : fruit
+            // 변경대상 : select#anum
+
             
+            function anumFn(){
+                let htc="";//html코드 변수
+                fruit.forEach((val,idx)=>{
+                    htc += `<option value="${idx}">${val}</option>`
+                    // console.log(idx,val)
+                });//////////forEach
 
+                // #anum 선택박스에 html넣기
+                anum.html(htc);
 
-
-
-
-
-
-
-
-
+            }/////////////anumFn 함수/////////
 
 
 
