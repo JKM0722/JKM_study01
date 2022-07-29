@@ -159,6 +159,7 @@
 
 /* GNB ul */
 .gnb ul{
+    margin-left: 10%;
     /* 플랙스박스 */
     display: flex;
     /* 자동줄바꿈 */
@@ -188,7 +189,105 @@
     color: red;
 }
 
-/*************** 2. 하단영역 ***************/
+/************************* 상단메뉴 .on클래스 변경시 상단슬림디자인변경 *************************/
+/************************* #top 최상위 박스에 클래스 .on을 줘서 적용 *************************/
+#top{
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.103);
+}
+
+#top.on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background-color: #fff;
+}
+
+/* 2. 상단영역 속박스 높이 줄이기 */
+#top.on .top{
+    min-height: auto;
+}
+
+/* 3. 탑메뉴 없애기 */
+#top.on .tmenu{
+    display: none;
+}
+
+
+/* 4. 메인로고 이미지 크기 변경 */
+#top.on .logo img{
+    width: 100px;
+}
+
+#top.on .logo{
+    position: absolute;
+    /* 부모:#top */
+    padding: 10px;
+}
+
+/* gnb변경 */
+#top.on .gnb{
+    padding: 5px 120px 0px;
+
+}
+
+#top.on .gnb a{
+    font-size: 14px;
+    color: #333;
+    
+}
+
+#top.on .gnb li{
+    padding-right: 35px;
+}
+
+/*************** 3. 하단영역 ***************/
 .info{
     min-height: 286px;
+    background-color: #000;
+    padding: 70px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
+
+/****************************************** 하단로고 ******************************************/
+.blogo{
+    text-align: center;
+
+}
+
+/****************************************** 회사주소 ******************************************/
+.addr{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #747474;
+    font-style: normal;
+    font-size: 11px;
+}
+
+/****************************************** 하단링크 ******************************************/
+.blink{
+    /* 플랙스박스 */
+    display: flex;
+    
+    /* 수평방향 중앙정렬 */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.blink a{
+    color: #747474;
+    font-size: 12px;
+    margin: 0 6px;
+}
+
+.blink li:last-child a{
+    font-weight: bold;
+}
+
+
+/* .cont, .top{
+    display: none;
+} */
