@@ -287,6 +287,32 @@
     font-weight: bold;
 }
 
+.tbtn {
+    position: fixed;
+    bottom: -35px;
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    z-index: 9999;
+    font-size: 12px;
+    opacity: 0;
+    transition: background-color .3s, opacity .3s;
+}
+
+.tbtn.on {
+    opacity: 1;
+    bottom: 0;
+}
+
+.tbtn:hover {
+    background-color: #f00;
+}
+
 
 /* .cont, .top{
     display: none;

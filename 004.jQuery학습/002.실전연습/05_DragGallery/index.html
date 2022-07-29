@@ -28,6 +28,7 @@
         /* 드래그 선택 안되게 하는 CSS */
         .dselect{
             user-select: none;
+            
             /* 선택안되게함 */
             -webkit-user-drag: none;
             /* 드래그안되게함 */
@@ -82,7 +83,20 @@
         미리보기:
         https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/05_DragGallery/ready.html
      -->
-     <script></script>
+     <script>
+        $(()=>{
+
+            $("#move").draggable({
+                axis:"x"
+            });
+
+
+
+        })
+
+
+
+     </script>
 </head>
 
 <body>
