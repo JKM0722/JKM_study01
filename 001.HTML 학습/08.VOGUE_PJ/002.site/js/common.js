@@ -174,5 +174,14 @@ $(() => {
 
     }); ///// click ///////////////
 
+    // // 로딩 텍스트용 동영상
+    // $("body").prepend('<iframe width="871" height="490" src="https://www.youtube.com/embed/7AHLhrY75Iw" title="이걸 8000원에 판다고? 피파4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+
 
 }); /////////////// jQB ///////////////////////
+
+
+// 윈도우 객체 컨텐츠가 모두 로딩된 후 로딩 박스 없애기
+$(window).on("load",function(){
+    $(".LDbx").hide();
+})
