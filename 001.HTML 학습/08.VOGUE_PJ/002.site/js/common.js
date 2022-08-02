@@ -42,7 +42,7 @@ $(() => {
     }); /////// each //////////////
 
     // 위치배열값 확인!
-    console.log(scpos);
+    // console.log(scpos);
     //    scpos.forEach((val)=>console.log(val));
 
     /************************************* 
@@ -82,13 +82,13 @@ $(() => {
             scpos[idx] = $(ele).offset().top);
 
         // 위치배열값 확인!
-        console.log(scpos);
+        // console.log(scpos);
 
     }); /////////// resize함수 ///////////////////
 
 
     $(window).on("mousewheel wheel",()=>{
-        console.log("ㅎㅎㅎ");
+        // console.log("ㅎㅎㅎ");
         // 부드러운 스크롤 위치변수pos 업데이트
         // pos = scTop;
 
@@ -177,6 +177,9 @@ $(() => {
     // // 로딩 텍스트용 동영상
     // $("body").prepend('<iframe width="871" height="490" src="https://www.youtube.com/embed/7AHLhrY75Iw" title="이걸 8000원에 판다고? 피파4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
 
+    
+
+
 
 }); /////////////// jQB ///////////////////////
 
@@ -185,3 +188,100 @@ $(() => {
 $(window).on("load",function(){
     $(".LDbx").hide();
 })
+
+
+
+
+
+
+
+///////////////////////////////////////////////
+// 제이쿼리 스크롤 멈충 체크 플러그인 메서드
+/////////////////////////////////////////////// 
+
+$.fn.scStopped = function(callback){
+
+    // 스크롤 이벤트 설정하기////
+    $(this).scroll(function(){
+        //1. 먼저 타임아웃 지우기(아래서 설정된 타임아웃)
+        clearTimeout($(this).data('scTime'));
+        //2. 타임아웃 설정
+        $(this).data('scTime', setTimeout(callback,80));
+        // 제이쿼리 data() 메서드
+        // -> data(키,값) 특정 이름에 값을 세팅하여 저장
+
+        // 타임아웃에 시간은 부드러운 스크롤에 세팅된 시간인
+        // sped, smooth 시간을 더한 값으로 넣어준다
+        // 예) new SmoothScroll(document, 60, 20) -> 60+20=80
+        // 80dms 1/1000초
+    })/////scroll
+
+
+
+
+}; //////// 스크롤 멈춤 플러그인
+
+/// 윈도우객체를 제이쿼리로 플러그인 호출
+/// 이때 실행될 함수를 전달함
+$(window).scStopped(function(){
+    // 마지막 스크롤 위치값
+    let scTop = $(this).scrollTop();
+    // 콘솔에 확인
+    console.log("스크롤멈춤", scTop);
+    // 부드러운 스크롤 위치값에 업데이트
+    pos = scTop;
+});///window/////////////
+
+
+
+$(()=>{
+    let mykey = $("#top")
+    mykey.data('헐', '고양이')
+    mykey.data('힘', '강아지')
+
+    // console.log('data()키 값:', mykey.data('헐'),"/",mykey.data('힘'))
+
+    // data() 삭제는 removeData(키)
+
+    mykey.removeData('헐');
+
+
+    // console.log('data()키 값:', mykey.data('헐'),"/",mykey.data('힘'))
+
+
+
+})//////////////jqb
+
+
+
+/////////////////// 비교 JS Map() 메서드////////////////
+// -> 키, 값으로 저장하는 메모리 공간 생성 메서드 //////
+//1. 메모리 공간 생성: Map() -> new 키워드로
+// Map() 객체 아래 메서드 : set(), get(), has(), delete()
+const keyval = new Map()
+
+// 2. 값 세팅 : set(키,값)
+keyval.set('한국배우', '조승우')
+keyval.set('미국배우', '탐크루즈')
+keyval.set('중국배우', '성룡')
+
+// 3. 값호출 : get(키)
+// console.log('map()값',
+// keyval.get('한국배우'), "/",
+// keyval.get('미국배우'), "/",
+// keyval.get('중국배우'),
+// );
+
+// 4. 키 존재여부 : has(키)
+// console.log("성룡있나? 지금?", keyval.has('중국배우'));
+
+// 5. 값 삭제 : delete(키)
+keyval.delete('중국배우')
+
+// console.log("성룡있나? 지금?", keyval.has('중국배우'));
+
+// console.log('map()값',
+// keyval.get('한국배우'), "/",
+// keyval.get('미국배우'), "/",
+// keyval.get('중국배우'),
+// );

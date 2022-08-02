@@ -43,6 +43,7 @@ $(() => {
 
             // 버튼.숨겨().첫번째().보여()
             btns.hide().first().show();
+            // btns.hide().last().show();
 
             // 3. 공통 구현 함수 만들기
             // 각 스텝에서 미니언즈가 할 공통 기능 함수 구현
@@ -156,9 +157,16 @@ $(() => {
                     // 이동후 함수
                     let fn = () => {
 
-                        
-                        // 다음버튼 보이기
-                        $(this).next().fadeIn(300);
+                        // 첫번째 메시지 보이기
+                        msg.html(`여긴없겠지?`)
+                        .fadeIn(200).delay(1000)// 지연시간은 애니메이션 앞에서 효과
+                        .fadeIn(200,
+                            ()=>{
+                            ///두번째 메세지
+                            msg.html("그래도 무서우니 <br> 윗층으로 가자")
+                            // 다음버튼 보이기
+                            $(this).next().fadeIn(300);
+                        })//////////fadeIn//////////////
                     }
                        
                         // 공통 기능구현 
@@ -170,9 +178,48 @@ $(() => {
                     // 이동후 함수
                     let fn = () => {
 
+                        // 무.서.워.. 메시지
+                        msg.text('무')
+                        .fadeIn(200)
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서.'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서.워'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서.워.'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서.워..'))
+                        .delay(500)
+                        .fadeIn(200,()=>msg.text('무.서.워...'))
+                        .delay(500)
+                        .fadeIn(200,()=>{
+                            //7번방 좀비가 올라와서 달려든다
+                            bd.eq(7).find(".mz")
+                            .animate({////윗층으로 올라옴
+                                bottom:bd.eq(7).height()+"px"
+                            },300,"easeOutElastic")
+                            .delay(500)
+                            .animate({//달려들기
+                                right:bd.eq(7).width() + "px"
+                            },700,"easeInExpo",()=>{//물린후 대사
+                                msg.css({left:"-110%"}).text("악! 물렸다! 어서 치료주사방으로")
+
+                                setTimeout(() => {
+                                    mi.find("img").attr("src","images/mz1.png")
+                                }, 1000);
+
+                                // 다음버튼 보이기
+                                $(this).next().fadeIn(300);
+                            })///ㅁani
+                        })
+
+
+
                         
-                        // 다음버튼 보이기
-                        $(this).next().fadeIn(300);
                     }
                        
                         // 공통 기능구현 
@@ -184,6 +231,22 @@ $(() => {
                     // 이동후 함수
                     let fn = () => {
 
+                        // 주사기 돌기
+                        $('.inj').css({
+                            transform:"rotate(-150deg)",
+                            transition:".5s .5s",
+                            zIndex:9999
+                        })///css
+
+                        // 미니언즈로 다시 태어나기
+
+                        setTimeout(() => {
+                            mi.find("img").attr("src", "images/m2.png")
+                            msg.html("이제 조금만 더 가면<br>탈출이다!").css({left:"-150%"}).fadeIn(200)
+                        }, 1000);
+
+
+
                         
                         // 다음버튼 보이기
                         $(this).next().fadeIn(300);
@@ -193,10 +256,14 @@ $(() => {
                         actMini(this, 2, fn);
                     }) /////////// 치료주사방으로 윗층으로 click ///////////////
 
+
+
                 // 10. 3번방으로  버튼 클릭시 
                 .next().click(function () {
                     // 이동후 함수
                     let fn = () => {
+
+                        msg.html("어서 윗층으로 가자!").fadeIn(200)
 
                         
                         // 다음버튼 보이기
@@ -207,34 +274,97 @@ $(() => {
                         actMini(this, 3, fn);
                     }) /////////// 3번방으로 click ///////////////
 
-                // 11. 1번방으로  버튼 클릭시 
+                // 11. 3번방  버튼 클릭시 
                 .next().click(function () {
                     // 이동후 함수
                     let fn = () => {
 
-                        
+
+
+
                         // 다음버튼 보이기
                         $(this).next().fadeIn(300);
                     }
                        
                         // 공통 기능구현 
                         actMini(this, 1, fn);
-                    }) /////////// 1번방으로 click ///////////////
+                    }) /////////// 3번방 click ///////////////
 
                 // 12. 헬기를호출  버튼 클릭시 
                 .next().click(function () {
                     // 이동후 함수
                     let fn = () => {
 
+                        msg.html('도와줘요!')
+                        .fadeIn(200)
                         
+                        // 1번 좀비들이 나타나서 달려듬
+                        bd.eq(1).find(".mz").fadeIn(300)
+                        .animate({
+                            right: bd.eq(1).width()+"px"
+                        },1500,"easeInExpo")/////ani
+
+                        //헬기 등장하기
+                        $('.heli').animate({
+                            left:"20%"
+                        },4000,"easeOutBack",()=>{//헬기 도착 후 탑승이미지 변경
+                            $('.heli').attr("src","images/heli2.png");
+                            // 미니언즈 없애기
+                            mi.hide();
+                        })/////ani
+                        .delay(500).animate({
+                            left:"70%"
+                        },4000,"easeOutCirc",function(){
+                            $(this).attr("src","images/heli3.png");
+                        }).delay(300).animate({
+                            left:"100%"
+                        },5000,"linear", function(){
+                           //간판 떨어뜨리기
+                           // 1단계 ㅣ 중간가지 떨어짐
+                           // -> 간판에 class "on" 주기 
+                           let tit = $('.tit');
+                           tit.addClass("on");
+                           setTimeout(() => {
+                            tit.addClass("on2")
+                           }, 3000);// 3초후 2단계 on2추가
+                           //빌딩 무너뜨리기
+                           setTimeout(() => {
+                               bd.parent().addClass("on")
+                               // parent() 부모요소인 .building
+                           }, 6000);
+
+                           
+
+
+
+                        })//최종 마무리
+
                         // 다음버튼 보이기
                         $(this).next().fadeIn(300);
                     }
                        
                         // 공통 기능구현 
                         actMini(this, 0, fn);
-                    }) /////////// 헬기를호출ㄴ click ///////////////
+                    }) /////////// 헬기를호출 click ///////////////
 
+
+                    // 간판에 마우스 오버시 아웃시 색상변경
+                    // hover(함수1, 함수2)
+                    // - 함수1은 오버시 , 함수2는 아웃시 실행
+                    $(".tit").hover(
+                        function(){//over
+                            $(this).css({
+                                backgroundColor:"blue",
+                                color:"pink",
+                            })
+                        },
+                        function(){//out
+                            $(this).css({
+                                backgroundColor:"pink",
+                                color:"yellow"
+                            })
+                        }
+                        )
 
 
 
