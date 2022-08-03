@@ -355,6 +355,8 @@
     padding-bottom: 30px;
     background-color: #fff;
     display: none;/* 처음에 안보임 */
+    overflow-y: auto;
+    height: calc(100vh - 54px);
 }
 /* 1.5-1.모바일 GNb */
 .mognb{

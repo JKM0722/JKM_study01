@@ -9,6 +9,53 @@ $(() => {
     /// 부드러운 스크롤 호출!(제이쿼리 아님!)
     startSS();
 
+    /* 모바일 버튼 클릭시 검색 / GNB 보이기 */
+    //  1. 햄버거버튼
+    $('.hbtn').click(()=>{
+        //GNB 박스 슬라이딩 보임/숨김
+        //slideToggle() -> slideUp/slideDown
+        //대상 : 모바일 GNB
+        $('#mobx').slideToggle(400, resetH);
+        
+
+
+    });//////click
+    //  2. 검색버튼
+    $('.sbtn').click(()=>{
+        //GNB 박스 슬라이딩 보임/숨김
+        //slideToggle() -> slideUp/slideDown
+        //대상 : 모바일 GNB
+        $('.mos').slideToggle(200, resetH);
+        
+    });//////click
+
+    /* 모바일 GNB 높이값 재설정 함수 */
+    const resetH = ()=>{
+        //#mobx의 높이값을 동적으로 생성
+        console.log(
+            '.top의 높이값:',$(".top").innerHeight(),".mos의 높이값",$('.mos').css("display")
+        )
+        
+        // 검색박스 높이는 block일때 넣어줌
+        let temp = $('.mos').css("display")==='none'?0:$('.mos').innerHeight();
+
+        // 변경할 높이
+        let Hval = $(".top").innerHeight() + temp;
+        
+        
+        // + $('.mos').css("display")==='none'?0:$('.mos').innerHeight();
+        //innerHeight()는 패딩 포함 높이
+        //height()는 순수높이(컨텐츠만)
+        //017 문서 참조
+
+        console.log('보정높이',Hval)
+
+        // 동적으로 변경
+        $("#mobx").css({
+            height:`calc(100vh - ${Hval}px)`
+        })
+    };//////resetH함수///
+
 
     /******************************** 
         페이지 스크롤시 변경 구현하기
