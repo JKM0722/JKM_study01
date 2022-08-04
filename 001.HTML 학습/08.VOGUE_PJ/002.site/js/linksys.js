@@ -9,7 +9,7 @@ $(() => { ////////// JQB
     // 변경: 대상요소 앞에 a요소 코드를 삽입한다.
     // 메서드 : before(요소) -> 선택요소 앞에 형제요소 삽입
     // -> 참고) after(요소) -> 선택요소 뒤에 형제요소 삽입
-    $(".sns a").last().before(`
+    $(".sns a, .mosns a").last().before(`
    <a class="fi fi-laptop">
        <span class="ir">
            로그인
@@ -30,7 +30,7 @@ $(() => { ////////// JQB
 
     /* sns 파트 a 요소들에 툴팁 넣기 */
 
-    $('.sns a').each((idx, ele) => {
+    $('.sns a, .mosns a').each((idx, ele) => {
         // attr(속성명, 값)
         // -> 값으로 자식요소인 .ir의 텍스트 읽어감
         $(ele).attr("title", $(ele).find('.ir').text())
@@ -44,7 +44,7 @@ $(() => { ////////// JQB
     /****************************************** 
         sns 메뉴 파트 링크 생성하기
     ******************************************/
-    $('.sns a').click(function (e) {
+    $('.sns a, .mosns a').click(function (e) {
 
         // a 요소 기본이동 막기
         e.preventDefault();
@@ -54,6 +54,8 @@ $(() => { ////////// JQB
         // 1. 클릭된 a 요소의 텍스트 읽기
         let atxt = $(this).text().trim();
         console.log(atxt);
+
+        $(".mosns a").eq(3).after('<br>');
 
 
         // 2. 이동할 페이지 주소 할당하기
