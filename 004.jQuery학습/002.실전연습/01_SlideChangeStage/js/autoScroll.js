@@ -79,6 +79,53 @@ $(() => { //////////////// jQB /////////////////////////
     **************************************************/
 
     /////////// 자동스크롤 구현 ////////////////////
+    $(document).on('mousewheel wheel', (e)=>{
+        // 광 스크롤 막기
+        if(prot_sc) return;
+        prot_sc = 1;
+        setTimeout(() => {
+           prot_sc = 0 
+        }, dur_sc);
+
+
+        // e.preventDefault(); //에러발생
+        
+          // e로 전달되는 이벤트 변수 처리하기
+          e =  window.event || e;
+          // window.event (오리지널 이벤트)가 유효할 경우 할당
+
+        // 2. 방향에 따른 페이지번호 증감
+        // 방향은 델타값 사용
+        let delta = e.ewheeldelta || e.detail;
+        // e.ewheeldelta -> 일반 브라우저용 방향정보
+        // e.detail -> 파이어폭스 방향정보
+        // 변수 = 속성값1 || 속성값2
+        // 둘중 유효한 값이 변수에 할당된다.
+
+        
+
+        
+        console.log('방향', delta)
+        // console.log('휠중')
+
+        // 음수면 아랫방향
+        if(delta < 0){
+            pno++;
+            if(pno===totnum) pno = totnum - 1;
+        }
+        
+        // 양수면 윗방향
+        else{
+            pno--;
+            if(pno===-1) pno = 0;
+        }
+
+
+        // 스크롤 애니메이션
+        $('html, body').animate({
+            scrollTop: $(window).height()*pno + "px"
+        },800)//ani
+    })//////////////mousewheel////////////////////////////////
     
 
 
