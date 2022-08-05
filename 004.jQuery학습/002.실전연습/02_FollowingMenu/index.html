@@ -117,6 +117,24 @@
 				중요정보: 마우스 포인터의 x,y 위치값
 				사용메서드: mousemove()
 			***********************************************/
+			// 움직일 대상 : #mbx
+			let mbx = $("#mbx")
+			//#mbx박스 크기의 절반 (가로, 세로 동일)
+			let hz = mbx.width() / 2;
+
+			$('body').mousemove((e)=>{
+				// 1. 마우스 위치값 알아내기
+				// x좌표 : e.pageX / Y좌표: e.pageY
+				let posx = e.pageX - hz;
+				let posy = e.pageY - hz;
+				// console.log("X좌표" ,posx, "Y좌표",posy)
+
+				// 2. 변경대상이 마우스 포인터 위치로 이동
+				mbx.css({
+					top:posy + "px",
+					left:posx + "px",
+				})
+			});/////////////////mousemove ///////////////
 			
 
 		}); //////////////////////////// jQB /////////////////////
